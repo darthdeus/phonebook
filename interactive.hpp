@@ -5,8 +5,11 @@
 
 class Cli {
   public:
-    Cli(Phonebook& book);
+    Cli(Phonebook& book): book(book) {}
     void start_interactive();
+
+  private:
+    Phonebook& book;
 };
 
 

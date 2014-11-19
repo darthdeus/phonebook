@@ -28,6 +28,8 @@ void Cli::start_interactive() {
     char c;
     cin >> c;
 
+    if (cin.eof()) return;
+
     switch (c) {
       case 'a': break;
       case 'b': break;
@@ -38,5 +40,8 @@ void Cli::start_interactive() {
       case 'q': return;
       default: invalid_command();
     }
+
+    cout << endl << endl;
+    print_menu();
   }
 }
