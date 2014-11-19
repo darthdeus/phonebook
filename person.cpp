@@ -5,15 +5,32 @@
 
 using std::endl;
 
+class skip_char {
+ public:
+  skip_char(char c) : c(c) {}
+  friend std::istream& operator>>(std::istream& is, skip_char sc);
+
+ private:
+  char c;
+};
+
+std::istream& operator>>(std::istream& is, skip_char sc) {
+  char c;
+  is >> c;
+  if (c != sc.c) is.setstate(std::ios::failbit);
+  return is;
+}
+
 std::istream& operator>>(std::istream& is, Person& p) {
   std::string b;
-  is >> b;
-  // TODO - check b
+
+  is >> skip_char('{');
 
   // TODO - handle when one of the fields spans multiple lines
   is >> p.first >> p.last >> p.address >> p.phone;
 
-  is >> b;
+  is >> skip_char('}');
+
   return is;
 }
 
