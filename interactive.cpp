@@ -7,12 +7,12 @@ using std::cin;
 using std::endl;
 
 void print_menu() {
-  cout << "a) List all" << endl;
-  cout << "b) Add" << endl;
-  cout << "c) Delete" << endl;
-  cout << "d) Save" << endl;
-  cout << "e) Find by name" << endl;
-  cout << "f) Find by phone" << endl;
+  cout << "l) List all" << endl;
+  cout << "a) Add" << endl;
+  cout << "d) Delete" << endl;
+  cout << "s) Save" << endl;
+  cout << "n) Find by name" << endl;
+  cout << "p) Find by phone" << endl;
   cout << "q) Quit" << endl;
   cout << "****************" << endl;
 }
@@ -31,12 +31,12 @@ void Cli::start_interactive() {
     if (cin.eof()) return;
 
     switch (c) {
-      case 'a': list_all(); break;
-      case 'b': add_person(); break;
-      case 'c': break;
+      case 'l': list_all(); break;
+      case 'a': add_person(); break;
       case 'd': break;
-      case 'e': break;
-      case 'f': break;
+      case 's': break;
+      case 'n': break;
+      case 'p': break;
       case 'q': return;
       default: invalid_command();
     }
