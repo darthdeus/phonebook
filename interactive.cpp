@@ -31,8 +31,8 @@ void Cli::start_interactive() {
     if (cin.eof()) return;
 
     switch (c) {
-      case 'a': break;
-      case 'b': break;
+      case 'a': list_all(); break;
+      case 'b': add_person(); break;
       case 'c': break;
       case 'd': break;
       case 'e': break;
@@ -44,4 +44,22 @@ void Cli::start_interactive() {
     cout << endl << endl;
     print_menu();
   }
+}
+
+void Cli::list_all() {
+  cout << endl << endl << "Listing all:" << endl;
+
+  int i = 1;
+
+  for (auto& person : book.data) {
+    cout << "  " << i++ << ". " << person << endl;
+  }
+}
+
+void Cli::add_person() {
+  cout << endl << endl << "Enter a new person:" << endl;
+  Person p;
+  cin >> p;
+  book.add(p);
+  cout << "OK" << endl;
 }

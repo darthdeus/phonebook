@@ -14,8 +14,9 @@ class Phonebook {
     Person* find_by_name(std::string name);
     Person* find_by_phone(int phone);
 
-  private:
     std::vector<Person> data;
+
+  private:
     std::unordered_map<std::string, Person*> lastname_index;
     std::unordered_map<int, Person*> phone_index;
 

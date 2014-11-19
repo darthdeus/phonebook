@@ -9,6 +9,9 @@ class Cli {
     void start_interactive();
 
   private:
+    void list_all();
+    void add_person();
+
     Phonebook& book;
 };
 
