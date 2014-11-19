@@ -34,7 +34,7 @@ void Cli::start_interactive() {
       case 'l': list_all(); break;
       case 'a': add_person(); break;
       case 'd': break;
-      case 's': break;
+      case 's': save(); break;
       case 'n': break;
       case 'p': break;
       case 'q': return;
@@ -62,4 +62,8 @@ void Cli::add_person() {
   cin >> p;
   book.add(p);
   cout << "OK" << endl;
+}
+
+void Cli::save() {
+  book.save(filename);
 }

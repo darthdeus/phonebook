@@ -16,6 +16,8 @@ class Phonebook {
 
     std::vector<Person> data;
 
+    void save(const std::string filename);
+
   private:
     std::unordered_map<std::string, Person*> lastname_index;
     std::unordered_map<int, Person*> phone_index;

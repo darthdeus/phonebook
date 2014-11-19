@@ -20,7 +20,7 @@ int main() {
   Phonebook book;
   book.add(p);
 
-  Cli cli(book);
+  Cli cli(book, "input.txt");
   cli.start_interactive();
 
   // cout << *book.find_by_name("Vomacka") << endl;
