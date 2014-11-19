@@ -5,6 +5,20 @@
 
 using std::endl;
 
+class line_word {
+ public:
+  line_word(std::string s) : s(s) {}
+  friend std::istream& operator>>(std::istream& is, std::string& s);
+
+ private
+  std::string s;
+};
+
+std::istream& operator>>(std::istream& is, std::string& s) {
+  char buf[1000];
+  is.getline(buf, 1000);
+}
+
 class skip_char {
  public:
   skip_char(char c) : c(c) {}
@@ -26,8 +40,8 @@ std::istream& operator>>(std::istream& is, Person& p) {
 
   is >> skip_char('{');
 
-  // TODO - handle when one of the fields spans multiple lines
-  is >> p.first >> p.last >> p.address >> p.phone;
+  // TODO - handle when one of the fields spans multiple words
+  is >> line_word(p.first) >> p.last >> p.address >> p.phone;
 
   is >> skip_char('}');
 
