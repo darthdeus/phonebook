@@ -5,6 +5,7 @@
 
 #include "person.hpp"
 #include "phonebook.hpp"
+#include "interactive.hpp"
 
 using std::cout;
 using std::endl;
@@ -19,8 +20,11 @@ int main() {
   Phonebook book;
   book.add(p);
 
-  cout << *book.find_by_name("Vomacka") << endl;
-  cout << book.find_by_name("NEVOMACKA") << endl;
+  Cli cli(book);
+  cli.start_interactive();
+
+  // cout << *book.find_by_name("Vomacka") << endl;
+  // cout << book.find_by_name("NEVOMACKA") << endl;
 
   return 0;
 }
