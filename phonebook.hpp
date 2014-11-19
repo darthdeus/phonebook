@@ -11,13 +11,13 @@ class Phonebook {
   public:
     void add(Person p);
 
-    Person& find_by_name(std::string name);
-    Person& find_by_phone(int phone);
+    Person* find_by_name(std::string name);
+    Person* find_by_phone(int phone);
 
   private:
     std::vector<Person> data;
-    std::unordered_map<std::string, Person&> lastname_index;
-    std::unordered_map<int, Person&> phone_index;
+    std::unordered_map<std::string, Person*> lastname_index;
+    std::unordered_map<int, Person*> phone_index;
 
 
 };

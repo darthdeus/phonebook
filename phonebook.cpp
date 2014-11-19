@@ -4,14 +4,15 @@
 
 void Phonebook::add(Person p) {
   data.push_back(p);
-  lastname_index[p.last] = p;
-  phone_index[p.phone] = p;
+
+  lastname_index.insert(std::make_pair(p.last, &p));
+  phone_index.insert(std::make_pair(p.phone, &p));
 }
 
-Person& Phonebook::find_by_name(std::string name) {
+Person* Phonebook::find_by_name(std::string name) {
   return lastname_index[name];
 }
 
-Person& Phonebook::find_by_phone(int phone) {
+Person* Phonebook::find_by_phone(int phone) {
   return phone_index[phone];
 }
